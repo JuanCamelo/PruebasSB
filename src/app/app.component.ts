@@ -1,17 +1,12 @@
 ﻿import { Component } from '@angular/core';
 
-import { AccountService } from './_services';
-import { User } from './_models';
+@Component({ 
+    selector: 'oph-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'] }
+    )
+export class AppComponent {   
 
-@Component({ selector: 'app', templateUrl: 'app.component.html' })
-export class AppComponent {
-    user: User;
+    constructor() {}
 
-    constructor(private accountService: AccountService) {
-        this.accountService.user.subscribe(x => this.user = x);
-    }
-
-    logout() {
-        this.accountService.logout();
-    }
 }

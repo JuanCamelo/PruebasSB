@@ -1,0 +1,28 @@
+.card{
+    font-weight: 700;
+    display: grid;
+    width: 30%;    
+    margin-top: 5em;
+    margin-left: 35%;
+    position: static;
+    .card-header{        
+        text-align: center;
+    }
+}
+
+.card-button{
+    text-align: center;
+    position: sticky;
+    display: inline;
+    .btn-submit{
+        border-radius:solid 1px ;
+        margin-top: 1em;
+        font-weight: 700;
+        font-size: 16px;
+        color: white;
+        background-color:#00008f;
+        width: 12em;
+        box-shadow: 10px 5px 5px black; 
+
+    }
+}
