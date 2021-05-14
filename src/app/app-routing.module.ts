@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home';
-import { AuthGuard } from './_helpers';
-
-const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
-const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
-
-const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
-    { path: 'account', loadChildren: accountModule },
-
-    // otherwise redirect to home
-    { path: '**', redirectTo: '' }
-];
+const routes: Routes = [  
+  {
+    path:'home',
+    loadChildren:  () => import('./pages/home/home.module').then(m => m.HomeModule),   
+    //canActivate:[localStorage.length]
+  },
+  {
+    path:'',
+    loadChildren:  () => import('./pages/login/login.module').then(m => m.LoginModule)   
+    
+  },
+      
+    {
+      path: '**',
+      redirectTo: ''
+    }
+  ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
